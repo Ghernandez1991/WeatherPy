@@ -9,9 +9,15 @@ Your objective is to build a series of scatter plots to showcase the following r
 
 
 Temperature (F) vs. Latitude
+------------
 Humidity (%) vs. Latitude
+----------
 Cloudiness (%) vs. Latitude
+City Latitude and Cloudiness.png
+![Alt text](City Latitude and Cloudiness.png?raw=true "Optional Title")
+------------
 Wind Speed (mph) vs. Latitude
+-----------
 
 
 Your final notebook must:
