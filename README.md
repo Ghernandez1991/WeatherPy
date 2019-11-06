@@ -14,7 +14,7 @@ Humidity (%) vs. Latitude
 ----------
 Cloudiness (%) vs. Latitude
 City Latitude and Cloudiness.png
-![Image description](ity Latitude and Cloudiness.png)
+![Image description](City Latitude and Cloudiness.png)
 
 ------------
 Wind Speed (mph) vs. Latitude
