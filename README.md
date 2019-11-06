@@ -7,7 +7,7 @@ In this example, you'll be creating a Python script to visualize the weather of 
 
 Your objective is to build a series of scatter plots to showcase the following relationships:
 
-https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Maxtemp.png
+![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Maxtemp.png)
 Temperature (F) vs. Latitude
 ------------
 Humidity (%) vs. Latitude
