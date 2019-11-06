@@ -11,9 +11,11 @@ Your objective is to build a series of scatter plots to showcase the following r
 Temperature (F) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------
 ![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Maxtemp.png)
+
 Humidity (%) vs. Latitude
 -----------------------------------------------------------------------------------------------------------------------------
 ![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20humidity.png)
+
 Cloudiness (%) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
 ![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Cloudiness.png)
