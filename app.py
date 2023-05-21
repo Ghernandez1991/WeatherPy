@@ -11,10 +11,9 @@ from datetime import date
 
 
 
-def create_cities_df():
-    #set file destination 
-    output_data_file = "output_data/cities_2022.csv"
-        #set lat and long range when finding the lists of cities
+def create_cities_df()-> pd.DataFrame:
+    
+    #set lat and long range when finding the lists of cities
     lat_range = (-90, 90)
     lng_range = (-180, 180)
     #setting each response we get back from api to a list 
@@ -41,10 +40,6 @@ def create_cities_df():
         if city not in cities:
             cities.append(city)
 
-    # Print the city count to confirm sufficient count
-    #len(cities)
-    cities
-
     #create a data frame from the cities list
     #each column is just a list
     cities_df = pd.DataFrame({
@@ -57,20 +52,14 @@ def create_cities_df():
         "long": [],
         "lat": []
     })
-    #view blank dataframe    
-    cities_df.head()
     #assign list cities to column name ['City_name']
     #add cities list as a column 
     cities_df['City_name'] = cities
-        
-    #check how many cities we have in the list    
-    #cities_df.head()
-    len(cities_df.City_name)
 
     return cities_df
 
 
-def api_query(cities_df):
+def api_query(cities_df:pd.DataFrame)-> None:
 
     #partial url 
     units = 'Imperial'
@@ -135,7 +124,5 @@ def api_query(cities_df):
 
 
 if __name__ == '__main__':
-    df = create_cities_df()
-    print(df.columns)
-    print(df.head())
-    api_query(df)
+    cities_df = create_cities_df()
+    api_query(cities_df)
