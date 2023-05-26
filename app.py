@@ -1,5 +1,4 @@
 #import dependencies
-#import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import requests
@@ -8,6 +7,9 @@ from citipy import citipy
 #import API key
 from config import api_key
 from datetime import date
+from datetime import datetime
+from constant import city_list, city_list_small
+from typing import List
 
 
 
@@ -121,8 +123,73 @@ def api_query(cities_df:pd.DataFrame)-> None:
     #save file to csv
     final_clean_df.to_csv(f'data_{month}_{day}_{year}.csv')
     
+    
 
+def query_from_list(city_list:List[str])-> pd.DataFrame:
+    #partial url 
+    units = 'Imperial'
+    url = "http://api.openweathermap.org/data/2.5/weather?"
+    #create api url
+    query_url = f"{url}appid={api_key}&units={units}&q="
+    #create blank dataframe
+    cities_df = pd.DataFrame({"City": [],
+        "Temp_max": [],
+        "Humidity": [],
+        " Cloudiness ": [], 
+        "wind_speed": [],
+        "city_id": [],
+        "country_code": [],
+        "long": [],
+        "lat": []
+    })
+    #iterate of the list of cities
+    for index, city in enumerate(city_list):
+       
+        # assemble url and make API request
+        print(f"Retrieving Results for Index {index}: {city}.")
+
+        weather_data = requests.get(query_url + city, timeout=5).json()
+        # extract results
+        try:
+            results_lat = weather_data['coord']['lat']    
+            country_code = weather_data['sys']['country']
+            results_lng = weather_data['coord']['lon']
+            city_id = weather_data['id']
+            wind_speed = weather_data['wind']['speed']
+            clouds = weather_data['clouds']['all']
+            humidity = weather_data['main']['humidity']
+            max_temp = weather_data['main']['temp']
+            city_name = weather_data['name']
+
+
+            cities_df.loc[index, 'City'] = city_name
+            cities_df.loc[index, 'lat'] = results_lat
+            cities_df.loc[index, 'country_code'] = country_code
+            cities_df.loc[index, 'long'] = results_lng
+            cities_df.loc[index, 'city_id'] = city_id
+            cities_df.loc[index, 'wind_speed'] = wind_speed
+            cities_df.loc[index, 'Cloudiness'] = clouds
+            cities_df.loc[index, 'Humidity'] = humidity
+            cities_df.loc[index, 'Temp_max'] = max_temp
+        except (KeyError, IndexError):
+            print("Missing field/result... skipping.")
+        print("------------")
+        time.sleep(2)
+
+    #drop unused column in 3rd index
+    clean_df1 = cities_df.drop([cities_df.columns[3]], axis='columns')
+    #reorder columns
+    clean_df2 = clean_df1[['City', 'Temp_max', 'Humidity', 'wind_speed', 'city_id', 'country_code', 'long', 'lat', 'Cloudiness']]
+    #get current timestamp
+    current_datetime = datetime.now()
+
+    # Format the date and time as a string
+    datetime_str = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+    #write file
+    clean_df2.to_csv(f'data{datetime_str}.csv')
+
+    return clean_df2
 
 if __name__ == '__main__':
-    cities_df = create_cities_df()
-    api_query(cities_df)
+    df = query_from_list(city_list_small)
+    
