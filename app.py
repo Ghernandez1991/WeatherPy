@@ -148,7 +148,7 @@ def query_from_list(city_list:List[str])-> pd.DataFrame:
         # assemble url and make API request
         print(f"Retrieving Results for Index {index}: {city}.")
 
-        weather_data = requests.get(query_url + city, timeout=5).json()
+        weather_data = requests.get(query_url + city, timeout=30).json()
         # extract results
         try:
             results_lat = weather_data['coord']['lat']    
@@ -186,7 +186,7 @@ def query_from_list(city_list:List[str])-> pd.DataFrame:
     # Format the date and time as a string
     datetime_str = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
     #write file
-    clean_df2.to_csv(f'data{datetime_str}.csv')
+    clean_df2.to_csv(f'data/data{datetime_str}.csv')
 
     return clean_df2
 
