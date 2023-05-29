@@ -18,7 +18,7 @@ Humidity (%) vs. Latitude
 
 Cloudiness (%) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/images/City%20Latitude%20and%Cloudiness.png)
+![Image description](https://github.com/Ghernandez1991/WeatherPy/blob/master/images/City%20Latitude%20and%20Cloudiness.png)
 
 Wind Speed (mph) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
