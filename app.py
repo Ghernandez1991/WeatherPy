@@ -247,4 +247,4 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df = query_from_list(city_list_small)
+    df = query_from_list(city_list)
