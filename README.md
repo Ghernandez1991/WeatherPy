@@ -10,19 +10,19 @@ Your objective is to build a series of scatter plots to showcase the following r
 
 Temperature (F) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Maxtemp.png)
+![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/images/City%20Latitude%20and%20Maxtemp.png)
 
 Humidity (%) vs. Latitude
 -----------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20humidity.png)
+![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/images/City%20Latitude%20and%20humidity.png)
 
 Cloudiness (%) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Cloudiness.png)
+![Image description](https://github.com/Ghernandez1991/WeatherPy/blob/master/images/City%20Latitude%20and%20Cloudiness.png)
 
 Wind Speed (mph) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/City%20Latitude%20and%20Wind%20Speed.png)
+![Image description](https://github.com/Ghernandez1991/WeatherPy/blob/master/images/City%20Latitude%20and%20Wind%20Speed.png)
 
 Your final notebook must:
 
