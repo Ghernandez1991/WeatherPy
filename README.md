@@ -22,7 +22,7 @@ Cloudiness (%) vs. Latitude
 
 Wind Speed (mph) vs. Latitude
 --------------------------------------------------------------------------------------------------------------------------------
-![Image description](https://github.com/Ghernandez1991/Python-API-homework/blob/master/images/%20Latitude%20and%20Wind%20Speed.png)
+![Image description](https://github.com/Ghernandez1991/WeatherPy/blob/master/images/City%20Latitude%20and%20Wind%20Speed.png)
 
 Your final notebook must:
 
