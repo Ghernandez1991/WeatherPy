@@ -151,6 +151,7 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
             "country_code": [],
             "long": [],
             "lat": [],
+            "datetime": [],
         }
     )
     # iterate of the list of cities
@@ -172,6 +173,8 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
             humidity = weather_data["main"]["humidity"]
             max_temp = weather_data["main"]["temp"]
             city_name = weather_data["name"]
+            date_time = weather_data["dt"]
+            print(date_time)
 
             cities_df.loc[index, "City"] = city_name
             cities_df.loc[index, "lat"] = results_lat
@@ -182,6 +185,7 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
             cities_df.loc[index, "Cloudiness"] = clouds
             cities_df.loc[index, "Humidity"] = humidity
             cities_df.loc[index, "Temp_max"] = max_temp
+            cities_df.loc[index, "datetime"] = date_time
         except (KeyError, IndexError):
             print("Missing field/result... skipping.")
         print("------------")
@@ -202,6 +206,7 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
             "long",
             "lat",
             "Cloudiness",
+            "datetime",
         ]
     ]
     # get current timestamp
@@ -242,4 +247,4 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df = query_from_list(city_list)
+    df = query_from_list(city_list_small)
