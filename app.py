@@ -6,10 +6,10 @@ import time
 from citipy import citipy
 
 # import API key
-from config import api_key
+from config.config import api_key
 from datetime import date
 from datetime import datetime
-from constant import city_list, city_list_small
+from constants.constant import city_list, city_list_small
 from typing import List
 from pathlib import Path
 import sys
