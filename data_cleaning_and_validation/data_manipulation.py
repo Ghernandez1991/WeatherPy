@@ -74,7 +74,8 @@ class DataManipulation:
             # rule expects that every column in schema_list would exist in the dataset being examined
             expectation_configurations.append(
                 ExpectationConfiguration(
-                    expectation_type="expect_column_to_exist", kwargs={"column": column}
+                    expectation_type="expect_column_to_exist",
+                    kwargs={"column": column},
                 )
             )
             # expects that every column in the dataset does not have null values
@@ -100,5 +101,7 @@ class DataManipulation:
         """
         dataset = ge.dataset.PandasDataset(df, expectation_suite=expectation_suite)
         # Validate the dataset against the expectation suite
-        validation_results = dataset.validate()
+        validation_results = dataset.validate(
+            result_format={"result_format": "COMPLETE", "include_result": True}
+        )
         return validation_results

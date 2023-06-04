@@ -243,6 +243,7 @@ def query_from_list(city_list: List[str]) -> pd.DataFrame:
     clean_df2.to_csv(data_folder / f"data{datetime_str}.csv")
 
     print(f"File written to csv")
+    print(f"File written at {datetime_str}")
     return clean_df2
 
 
