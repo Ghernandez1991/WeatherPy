@@ -26,3 +26,8 @@ validation_suite = data_class_var.create_expectation_suite("suite1", schema_colu
 
 # process the df and validate the rules
 validation_results = data_class_var.validate_dataset(df, validation_suite)
+
+data_class_var.review_results(validation_results)
+
+# data_class_var.move_to_validated("data2023-05-31_00-20-44.csv")
+# data_class_var.move_to_raw("data2023-05-31_00-20-44.csv")

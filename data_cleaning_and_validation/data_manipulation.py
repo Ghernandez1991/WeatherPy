@@ -105,3 +105,51 @@ class DataManipulation:
             result_format={"result_format": "COMPLETE", "include_result": True}
         )
         return validation_results
+
+    def review_results(self, validation_results):
+        import json
+
+        # Assuming you have the validation results stored in a variable called 'validation_results'
+        # You can load the JSON string into a Python object
+        # results = json.loads(validation_results)
+
+        # Initialize a flag to track if all expectations passed
+        all_expectations_passed = True
+
+        # Iterate over the results
+        for result in validation_results["results"]:
+            expectation_type = result["expectation_config"]["expectation_type"]
+            success = result["success"]
+
+            # Exclude the 'expect_column_values_to_not_be_null' expectation for 'country_code'
+            if (
+                expectation_type == "expect_column_values_to_not_be_null"
+                and result["expectation_config"]["kwargs"]["column"] == "country_code"
+            ):
+                continue
+
+            # Check if any expectation failed
+            if not success:
+                all_expectations_passed = False
+                break
+
+        # Check if all expectations except the null check on 'country_code' passed
+        if all_expectations_passed:
+            print("All expectations passed except the null check on 'country_code'.")
+            return True
+
+        else:
+            print("Some expectations failed.")
+            return False
+
+    def move_to_validated(self, file_name: str):
+        raw_path = Path(f"data/{file_name}")
+        validated_path = Path(f"validated_data/{file_name}")
+        raw_path.rename(validated_path)
+        print("file_moved_successfully")
+
+    def move_to_raw(self, file_name: str):
+        validated_path = Path(Path(f"validated_data/{file_name}"))
+        raw_path = Path(f"data/{file_name}")
+        validated_path.rename(raw_path)
+        print("file_moved_successfully")
