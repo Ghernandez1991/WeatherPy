@@ -27,19 +27,19 @@ class DataManipulation:
         concatenated_df.to_csv("data/combined_df_all.csv")
         return concatenated_df
 
-    def concat_all_frames(self, raw_path: Path) -> pd.DataFrame:
+    def concat_all_frames(self, validated_path: Path) -> pd.DataFrame:
         """
-        Function takes in a Path object pointing to the raw folder where the data lands after being created from the API
+        Function takes in a Path object pointing to the validated_folder folder where the data lands after being run through great expectations
         The function iterates over all objects in the path, and concats them together into one frame.
         Returns a single dataframe
 
         """
         all_frames = []
-        for file in raw_path.glob("*"):
+        for file in validated_path.glob("*"):
             current_df = pd.read_csv(file, index_col=0)
             all_frames.append(current_df)
         concatenated_df = pd.concat(all_frames)
-        concatenated_df.to_csv("data/all_data.csv")
+        concatenated_df.to_csv("validated_data/all_data.csv")
         return concatenated_df
 
     def move_from_raw_to_processed(self, raw_path: Path):
