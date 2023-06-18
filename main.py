@@ -5,8 +5,8 @@ import pandas as pd
 
 def main():
     # create path objects for data
-    df1 = Path("data/data2023-05-31_00-20-44.csv")
-    df2 = Path("data/data2023-06-04_09-20-34.csv")
+    df1 = Path("data/data2023-06-10_12-20-56.csv")
+    df2 = Path("data/data2023-06-10_13-20-37.csv")
 
     # create path object to data directory
     raw_path = Path("data/")
