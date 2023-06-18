@@ -160,3 +160,9 @@ class DataManipulation:
         quarantine_path = Path(f"quarantine_data/{file_name}")
         raw_path.rename(quarantine_path)
         print("file_moved_successfully")
+
+    def move_to_processed_from_validated(self, file_name: str):
+        validated_path = Path(f"validated_data/{file_name}")
+        processed_path = Path(f"processed_data/{file_name}")
+        validated_path.rename(processed_path)
+        print("file_moved_successfully")
