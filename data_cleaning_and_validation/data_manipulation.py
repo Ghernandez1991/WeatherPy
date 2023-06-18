@@ -23,7 +23,8 @@ class DataManipulation:
         df1 = pd.read_csv(df1_path, index_col=0)
         df2 = pd.read_csv(df2_path, index_col=0)
 
-        concatenated_df = pd.concat([df1, df2])
+        concatenated_df = pd.concat([df1, df2]).reset_index(drop=True)
+
         concatenated_df.to_csv("data/combined_df_all.csv")
         return concatenated_df
 
